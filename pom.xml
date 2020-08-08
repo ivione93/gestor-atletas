@@ -61,9 +61,10 @@
       <artifactId>quarkus-spring-web</artifactId>
     </dependency>
     <dependency>
-      <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-jdbc-postgresql</artifactId>
-    </dependency>
+		<groupId>io.quarkus</groupId>
+		<artifactId>quarkus-jdbc-mysql</artifactId>
+	</dependency>
+
   </dependencies>
   <build>
     <plugins>
