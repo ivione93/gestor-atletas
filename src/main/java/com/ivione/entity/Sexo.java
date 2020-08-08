@@ -16,5 +16,20 @@ public class Sexo {
     @Column(name = "n_sexo")
     private String nSexo;
 
+	public String getIdSexo() {
+		return idSexo;
+	}
+
+	public void setIdSexo(String idSexo) {
+		this.idSexo = idSexo;
+	}
+
+	public String getnSexo() {
+		return nSexo;
+	}
+
+	public void setnSexo(String nSexo) {
+		this.nSexo = nSexo;
+	}
 }
 

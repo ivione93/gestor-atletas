@@ -1,17 +1,20 @@
 package com.ivione;
 
+import java.util.List;
+
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.Response;
-import javax.ws.rs.core.Response.Status;
 
 import org.jboss.logging.Logger;
+
+import com.ivione.entity.Sexo;
+import com.ivione.service.SexoService;
 
 @RequestScoped
 @Path("/gestorAtletas")
@@ -19,22 +22,18 @@ public class GestorAtletasResource {
 	
 	private static final Logger log =  Logger.getLogger(GestorAtletasResource.class);
 	
-	@GET
-    @Produces(MediaType.APPLICATION_JSON)
-    @Path("/atletas")
-    public Response getAtletas() {
-        log.infof("Call to getAtletas method without parameters");
-
-        return Response.ok("Atletas").build();
-    }
+	@Inject
+    SexoService sexoService;
 	
 	@GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("/atletas/{id_atleta}")
-    public Response getAtletas(@PathParam("id_atleta") final int atletaId) {
-        log.infof("Call to getAtletas method with parameters: {id_atleta: %s}", atletaId);
+    @Path("/sexos")
+    public Response getSexos() throws WebApplicationException {
+        log.infof("Call to getSexos method without parameters");
+        
+        List<Sexo> sexos = sexoService.getSexos();
 
-        return Response.ok("Atletas por id").build();
+        return Response.ok(sexos).build();
     }
 
 }
