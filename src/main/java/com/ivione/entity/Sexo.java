@@ -11,16 +11,16 @@ public class Sexo {
 	
 	@Id
     @Column(name = "id_sexo")
-    private String idSexo;
+    private Long idSexo;
 
     @Column(name = "n_sexo")
     private String nSexo;
 
-	public String getIdSexo() {
+	public Long getIdSexo() {
 		return idSexo;
 	}
 
-	public void setIdSexo(String idSexo) {
+	public void setIdSexo(Long idSexo) {
 		this.idSexo = idSexo;
 	}
 

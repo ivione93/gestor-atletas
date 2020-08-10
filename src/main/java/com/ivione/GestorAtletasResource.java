@@ -13,7 +13,9 @@ import javax.ws.rs.core.Response;
 
 import org.jboss.logging.Logger;
 
+import com.ivione.entity.Ambito;
 import com.ivione.entity.Sexo;
+import com.ivione.service.AmbitoService;
 import com.ivione.service.SexoService;
 
 @RequestScoped
@@ -23,7 +25,21 @@ public class GestorAtletasResource {
 	private static final Logger log =  Logger.getLogger(GestorAtletasResource.class);
 	
 	@Inject
+	AmbitoService ambitoService;
+	
+	@Inject
     SexoService sexoService;
+	
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/ambitos")
+	public Response getAmbitos() throws WebApplicationException {
+		log.infof("Call to getAmbitos method without parameters");
+		
+		List<Ambito> ambitos = ambitoService.getAmbitos();
+		
+		return Response.ok(ambitos).build();
+	}
 	
 	@GET
     @Produces(MediaType.APPLICATION_JSON)
