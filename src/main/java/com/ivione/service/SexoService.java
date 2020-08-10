@@ -26,5 +26,4 @@ public class SexoService {
         return listSexos;
     }
 
-
 }
