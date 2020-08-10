@@ -11,6 +11,12 @@ You can run your application in dev mode that enables live coding using:
 ./mvnw quarkus:dev
 ```
 
+## Docker mysql image needed
+For local mysql instance provisioning, use the following command
+```
+docker run --name gestor-atletas -e MYSQL_ROOT_PASSWORD=admin -e MYSQL_DATABASE=gestor-atletas -e MYSQL_USER=ivione93 -e MYSQL_PASSWORD=ivione93 -p 3306:3306 -d mysql:5.7.29
+```
+
 ## Packaging and running the application
 
 The application can be packaged using `./mvnw package`.
